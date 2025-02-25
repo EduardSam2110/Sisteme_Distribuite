@@ -1,0 +1,18 @@
+/* AUTOMATICALLY GENERATED ON Tue Feb 25 17:28:08 EET 2025*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.WebResourcePermission "/";
+  permission javax.security.jacc.WebUserDataPermission "/";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.WebRoleRefPermission "ProcessStudent", "**";
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "**";
+  permission javax.security.jacc.WebRoleRefPermission "", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ReadStudent", "**";
+  permission javax.security.jacc.WebRoleRefPermission "Hello", "**";
+  permission javax.security.jacc.WebRoleRefPermission "InitDatabase", "**";
+  permission javax.security.jacc.WebRoleRefPermission "default", "**";
+};
+
