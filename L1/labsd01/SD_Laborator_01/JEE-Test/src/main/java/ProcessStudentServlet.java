@@ -34,7 +34,7 @@ public class ProcessStudentServlet extends HttpServlet {
         bean.setVarsta(varsta);
 
         // serializare bean sub forma de string XML
-        mapper.writeValue(new File("C:\\Users\\Edi\\Downloads\\IADI\\student.xml"), bean);
+        mapper.writeValue(new File("/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/student.xml"), bean);
 
         // se trimit datele primite si anul nasterii catre o alta pagina JSP pentru afisare
         request.setAttribute("nume", nume);

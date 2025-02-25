@@ -1,7 +1,7 @@
-/home/iedi/Documents/SD/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/InitDatabaseServlet.java
-/home/iedi/Documents/SD/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ProcessStudentServlet.java
-/home/iedi/Documents/SD/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ProcessStudentDatabaseServlet.java
-/home/iedi/Documents/SD/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/beans/StudentBean.java
-/home/iedi/Documents/SD/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/HelloServlet.java
-/home/iedi/Documents/SD/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ReadStudentServlet.java
-/home/iedi/Documents/SD/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ReadStudentDatabaseServlet.java
+/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/beans/StudentBean.java
+/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ReadStudentServlet.java
+/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ProcessStudentServlet.java
+/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/HelloServlet.java
+/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ProcessStudentDatabaseServlet.java
+/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ReadStudentDatabaseServlet.java
+/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/InitDatabaseServlet.java

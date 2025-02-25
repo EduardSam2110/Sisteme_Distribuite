@@ -1,46 +1,46 @@
-import beans.StudentBean;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
-import java.time.Year;
+import java.sql.*;
 
 public class ProcessStudentDatabaseServlet extends HttpServlet {
+
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // se citesc parametrii din cererea de tip POST
+
         String nume = request.getParameter("nume");
         String prenume = request.getParameter("prenume");
         int varsta = Integer.parseInt(request.getParameter("varsta"));
 
-        /*
-        procesarea datelor - calcularea anului nasterii
-         */
-        int anCurent = Year.now().getValue();
-        int anNastere = anCurent - varsta;
+        Connection connection = null;
+        String message;
 
-        // initializare serializator Jackson
-        XmlMapper mapper = new XmlMapper();
+        try {
+            connection = DriverManager.getConnection("jdbc:sqlite:students.db");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO studenti(nume, prenume, varsta) VALUES (?, ?, ?)");
+            statement.setString(1, nume);
+            statement.setString(2, prenume);
+            statement.setInt(3, varsta);
+            statement.executeUpdate();
 
-        // creare bean si populare cu date
-        StudentBean bean = new StudentBean();
-        bean.setNume(nume);
-        bean.setPrenume(prenume);
-        bean.setVarsta(varsta);
+            message = "Student inscris";
+        } catch (SQLException e) {
+            e.printStackTrace();
+            message = "Eroare la inscriere: " + e.getMessage();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-        // serializare bean sub forma de string XML
-        mapper.writeValue(new File("C:\\Users\\Edi\\Downloads\\IADI\\student.xml"), bean);
-
-        // se trimit datele primite si anul nasterii catre o alta pagina JSP pentru afisare
-        request.setAttribute("nume", nume);
-        request.setAttribute("prenume", prenume);
-        request.setAttribute("varsta", varsta);
-        request.setAttribute("anNastere", anNastere);
-        request.getRequestDispatcher("./update-and-view-student.jsp").forward(request, response);
+        request.setAttribute("message", message);
+        request.getRequestDispatcher("formular-db.jsp").forward(request, response);
     }
 }

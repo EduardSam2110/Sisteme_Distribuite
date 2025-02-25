@@ -12,7 +12,7 @@ public class ReadStudentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // deserializare student din fisierul XML de pe disc
-        File file = new File("C:\\Users\\Edi\\Downloads\\IADI\\student.xml");
+        File file = new File("/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/student.xml");
 
         if (!file.exists()) {
             response.sendError(404, "Nu a fost gasit niciun student serializat pe disc!");

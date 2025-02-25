@@ -12,5 +12,10 @@
         <p>
             <a href="./read-student">Vizualizare student</a>
         </p>
+        <br/>
+        <br/>
+        <p>
+            <a href="./init-database">Baza de date</a>
+        </p>
     </body>
 </html>

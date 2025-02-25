@@ -1,32 +1,47 @@
-import beans.StudentBean;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReadStudentDatabaseServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // deserializare student din fisierul XML de pe disc
-        File file = new File("C:\\Users\\Edi\\Downloads\\IADI\\student.xml");
 
-        if (!file.exists()) {
-            response.sendError(404, "Nu a fost gasit niciun student serializat pe disc!");
-            return;
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        List<String> studenti = new ArrayList<>();
+        Connection connection = null;
+
+        try {
+            connection = DriverManager.getConnection("jdbc:sqlite:students.db");
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("SELECT * FROM studenti");
+
+            while (rs.next()) {
+                String student = "ID: " + rs.getInt("id") + ", " +
+                        "Nume: " + rs.getString("nume") + ", " +
+                        "Prenume: " + rs.getString("prenume") + ", " +
+                        "Varsta: " + rs.getInt("varsta");
+                studenti.add(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("eroare", e.getMessage());
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
-        XmlMapper xmlMapper = new XmlMapper();
-        StudentBean bean = xmlMapper.readValue(file, StudentBean.class);
-
-        request.setAttribute("nume", bean.getNume());
-        request.setAttribute("prenume", bean.getPrenume());
-        request.setAttribute("varsta", bean.getVarsta());
-
-        // redirectionare date catre pagina de afisare a informatiilor studentului
-        request.getRequestDispatcher("./info-student.jsp").forward(request, response);
+        request.setAttribute("studenti", studenti);
+        request.getRequestDispatcher("students-database-view.jsp").forward(request, response);
     }
 }

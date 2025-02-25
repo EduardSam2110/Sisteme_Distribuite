@@ -6,68 +6,35 @@ import java.io.IOException;
 import java.sql.*;
 
 public class InitDatabaseServlet extends HttpServlet {
-    private Connection connection;
 
     @Override
-    public void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
-            throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String message;
+        Connection connection = null;
+
         try {
             Class.forName("org.sqlite.JDBC");
-            System.out.println("SQLite JDBC Driver loaded!");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            throw new RuntimeException("SQLite JDBC Driver not found!");
-        }
-
-        try {
-            System.out.println("Initializing database...");
-
-            // Se creează o conexiune la baza de date (se creează dacă nu există)
             connection = DriverManager.getConnection("jdbc:sqlite:students.db");
-            System.out.println("Database connected!");
 
             try (Statement statement = connection.createStatement()) {
-                statement.setQueryTimeout(30);
-
-                // Crearea tabelei (dacă nu există deja)
-                statement.executeUpdate("DROP TABLE IF EXISTS person");
-                statement.executeUpdate("CREATE TABLE person (id INTEGER PRIMARY KEY, name TEXT)");
-
-                // Inserarea unor date
-                statement.executeUpdate("INSERT INTO person VALUES (1, 'leo')");
-                statement.executeUpdate("INSERT INTO person VALUES (2, 'yui')");
-
-                // Citirea și afișarea datelor
-                try (ResultSet rs = statement.executeQuery("SELECT * FROM person")) {
-                    while (rs.next()) {
-                        System.out.println("Read from DB: ID = " + rs.getInt("id") + ", Name = " + rs.getString("name"));
-                    }
-                }
+                statement.executeUpdate("CREATE TABLE IF NOT EXISTS studenti (id INTEGER PRIMARY KEY AUTOINCREMENT, nume TEXT, prenume TEXT, varsta INTEGER)");
+                message = "Baza de date initializata";
             }
-
-            httpServletResponse.getWriter().print("Database initialized successfully!");
-
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            httpServletResponse.getWriter().print("SQL Exception: " + e.getMessage());
+            message = e.getMessage();
         } finally {
-            // Închidem conexiunea la final pentru a evita problemele de memorie
-            try {
-                if (connection != null) {
+            if (connection != null) {
+                try {
                     connection.close();
-                    System.out.println("Database connection closed.");
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
             }
         }
+
+        request.setAttribute("message", message);
+        request.getRequestDispatcher("database.jsp").forward(request, response);
     }
 }
-
-/*
-Tasks:
-- Fa o pagina de ReadStudent cu baza de date, in care se va apela prima data functia de initializare,
-apoi userul va completa formularul si va apasa pe Trimite si sa afiseze un mesaj gen "Student inscris",
-va fi un buton cu Afiseaza studentii inscrisi si va redirectiona la ProcessStudents
-- Fa o pagina de ProcessStudent cu baza de date, in care se vor afisa toti studentii din baza de date
- */

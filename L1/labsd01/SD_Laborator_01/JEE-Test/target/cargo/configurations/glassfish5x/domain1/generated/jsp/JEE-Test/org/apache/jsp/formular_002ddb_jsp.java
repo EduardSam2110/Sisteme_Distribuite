@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class formular_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class formular_002ddb_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -50,7 +50,7 @@ public final class formular_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<body>\n");
       out.write("\t\t<h3>Formular student</h3>\n");
       out.write("\t\tIntroduceti datele despre student:\n");
-      out.write("\t\t<form action=\"./process-student\" method=\"post\">\n");
+      out.write("\t\t<form action=\"./process-student-db\" method=\"post\">\n");
       out.write("\t\t\tNume: <input type=\"text\" name=\"nume\" />\n");
       out.write("\t\t\t<br />\n");
       out.write("\t\t\tPrenume: <input type=\"text\" name=\"prenume\" />\n");
@@ -60,6 +60,9 @@ public final class formular_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t<br />\n");
       out.write("\t\t\t<button type=\"submit\" name=\"submit\">Trimite</button>\n");
       out.write("\t\t</form>\n");
+      out.write("        <p>\n");
+      out.write("            <a href=\"./read-student-db\">Vizualizare studenti</a>\n");
+      out.write("        </p>\n");
       out.write("\t</body>\n");
       out.write("</html>");
     } catch (Throwable t) {

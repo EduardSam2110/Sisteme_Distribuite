@@ -1,4 +1,4 @@
-/* AUTOMATICALLY GENERATED ON Tue Feb 25 17:28:08 EET 2025*/
+/* AUTOMATICALLY GENERATED ON Tue Feb 25 22:13:35 EET 2025*/
 /* DO NOT EDIT */
 
 grant {
@@ -12,7 +12,9 @@ grant      principal * * {
   permission javax.security.jacc.WebRoleRefPermission "", "**";
   permission javax.security.jacc.WebRoleRefPermission "ReadStudent", "**";
   permission javax.security.jacc.WebRoleRefPermission "Hello", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ReadStudentDB", "**";
   permission javax.security.jacc.WebRoleRefPermission "InitDatabase", "**";
+  permission javax.security.jacc.WebRoleRefPermission "ProcessStudentDB", "**";
   permission javax.security.jacc.WebRoleRefPermission "default", "**";
 };
 

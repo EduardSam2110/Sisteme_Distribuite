@@ -17,11 +17,17 @@
     <servlet-name>ReadStudent</servlet-name>
     <servlet-class>ReadStudentServlet</servlet-class>
   </servlet>
-<!--  Facem ca servletul InitDatabaseServlet sa se execute automat-->
   <servlet>
     <servlet-name>InitDatabase</servlet-name>
     <servlet-class>InitDatabaseServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>ProcessStudentDB</servlet-name>
+    <servlet-class>ProcessStudentDatabaseServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ReadStudentDB</servlet-name>
+    <servlet-class>ReadStudentDatabaseServlet</servlet-class>
   </servlet>
 
 
@@ -40,5 +46,13 @@
   <servlet-mapping>
     <servlet-name>InitDatabase</servlet-name>
     <url-pattern>/init-database</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProcessStudentDB</servlet-name>
+    <url-pattern>/process-student-db</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReadStudentDB</servlet-name>
+    <url-pattern>/read-student-db</url-pattern>
   </servlet-mapping>
 </web-app>
