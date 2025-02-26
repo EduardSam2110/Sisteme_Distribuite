@@ -88,9 +88,6 @@
       <jms-service default-jms-host="default_JMS_host" type="EMBEDDED">
         <jms-host port="${JMS_PROVIDER_PORT}" name="default_JMS_host" host="localhost"></jms-host>
       </jms-service>
-      <ejb-container>
-        <ejb-timer-service></ejb-timer-service>
-      </ejb-container>
       <web-container>
         <session-config>
           <session-manager>
@@ -100,6 +97,9 @@
           <session-properties></session-properties>
         </session-config>
       </web-container>
+      <ejb-container>
+        <ejb-timer-service></ejb-timer-service>
+      </ejb-container>
       <rest-config></rest-config>
       <cdi-service></cdi-service>
       <diagnostic-service></diagnostic-service>
@@ -441,7 +441,7 @@
     </config>
   </configs>
   <property name="administrative.domain.name" value="domain1"></property>
-  <secure-admin special-admin-indicator="fa72045f-a9d2-41cf-b5cc-e2d7bf140e79">
+  <secure-admin special-admin-indicator="344afd3f-dc19-4ea3-89e9-4d2ff61c6556">
     <secure-admin-principal dn="CN=iedi.lan,OU=GlassFish,O=Oracle Corporation,L=Santa Clara,ST=California,C=US"></secure-admin-principal>
     <secure-admin-principal dn="CN=iedi.lan-instance,OU=GlassFish,O=Oracle Corporation,L=Santa Clara,ST=California,C=US"></secure-admin-principal>
   </secure-admin>

@@ -8,6 +8,12 @@ public class StudentBean implements java.io.Serializable {
     public StudentBean() {
     }
 
+    public StudentBean(String n, String p, int v) {
+        nume = n;
+        prenume = p;
+        varsta = v;
+    }
+
     public String getNume() {
         return nume;
     }

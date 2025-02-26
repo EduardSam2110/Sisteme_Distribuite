@@ -1,7 +1,11 @@
+import beans.StudentBean;
+import com.google.gson.Gson;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,8 +18,10 @@ public class ReadStudentDatabaseServlet extends HttpServlet {
             throws ServletException, IOException {
 
         List<String> studenti = new ArrayList<>();
+        Gson gson = new Gson();
+        List<StudentBean> stud = new ArrayList<>();
         Connection connection = null;
-
+        FileWriter writer = new FileWriter("/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/studenti.json");
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:students.db");
             Statement statement = connection.createStatement();
@@ -26,8 +32,12 @@ public class ReadStudentDatabaseServlet extends HttpServlet {
                         "Nume: " + rs.getString("nume") + ", " +
                         "Prenume: " + rs.getString("prenume") + ", " +
                         "Varsta: " + rs.getInt("varsta");
+                stud.add(new StudentBean(rs.getString("nume"),rs.getString("prenume"), rs.getInt("varsta")));
                 studenti.add(student);
             }
+            gson.toJson(stud, writer);
+
+            writer.close();
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("eroare", e.getMessage());
