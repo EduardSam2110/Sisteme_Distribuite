@@ -1,6 +1,7 @@
 /home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ExportDatabaseJSON.java
 /home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/beans/StudentBean.java
 /home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/UpdateStudentDatabaseServlet.java
+/home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/DeleteStudentDatabaseServlet.java
 /home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ReadStudentServlet.java
 /home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/ProcessStudentServlet.java
 /home/iedi/Documents/Sisteme_Distribuite/L1/labsd01/SD_Laborator_01/JEE-Test/src/main/java/HelloServlet.java

@@ -17,7 +17,7 @@
                 out.print("<li>Nu exista studenti in baza de date</li>" + "<br>");
             } else {
                 for (String student : studenti) {
-                    out.print("<li><a href=\"./update-student-db\">" + student + "</a></li><br>");
+                    out.print("<li>" + student + "</li><br>");
                 }
             }
         } else {
@@ -27,6 +27,19 @@
         <form method="post" action="./export-student-db">
             <input type="hidden" name="keyword" value="<%= request.getParameter("keyword") != null ? request.getParameter("keyword") : "" %>">
             <button type="submit">Export JSON</button>
+        </form>
+        <br>
+        <form method="post" action="./update-student-db">
+            <button type="submit">Modifica studentul dupa id:</button><br>
+            Id: <input type="number" name="idStudent"><br>
+            Nume: <input type="text" name="numeStudent" placeholder="nume nou"><br>
+            Prenume: <input type="text" name="prenumeStudent" placeholder="prenume nou"><br>
+            Varsta: <input type="number" name="varstaStudent" placeholder="varsta noua"><br>
+        </form>
+        <br>
+        <form method="post" action="./delete-student-db">
+            <button type="submit">Sterge studentul cu id-ul:</button>
+            Id: <input type="number" name="idStudent"><br>
         </form>
 	</body>
 </html>

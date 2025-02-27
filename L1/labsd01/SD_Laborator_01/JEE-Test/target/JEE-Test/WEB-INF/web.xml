@@ -37,6 +37,10 @@
     <servlet-name>ExportStudentDB</servlet-name>
     <servlet-class>ExportDatabaseJSON</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteStudentDB</servlet-name>
+    <servlet-class>DeleteStudentDatabaseServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -66,6 +70,10 @@
   <servlet-mapping>
     <servlet-name>UpdateStudentDB</servlet-name>
     <url-pattern>/update-student-db</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteStudentDB</servlet-name>
+    <url-pattern>/delete-student-db</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>ExportStudentDB</servlet-name>

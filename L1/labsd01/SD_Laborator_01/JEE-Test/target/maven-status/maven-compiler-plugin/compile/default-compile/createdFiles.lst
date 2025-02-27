@@ -1,3 +1,4 @@
+DeleteStudentDatabaseServlet.class
 UpdateStudentDatabaseServlet.class
 ExportDatabaseJSON.class
 InitDatabaseServlet.class

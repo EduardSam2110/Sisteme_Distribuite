@@ -1,9 +1,9 @@
-/* AUTOMATICALLY GENERATED ON Thu Feb 27 21:52:08 EET 2025*/
+/* AUTOMATICALLY GENERATED ON Thu Feb 27 22:41:18 EET 2025*/
 /* DO NOT EDIT */
 
 grant {
-  permission javax.security.jacc.WebUserDataPermission "/";
   permission javax.security.jacc.WebResourcePermission "/";
+  permission javax.security.jacc.WebUserDataPermission "/";
 };
 
 grant      principal * * {
@@ -17,6 +17,7 @@ grant      principal * * {
   permission javax.security.jacc.WebRoleRefPermission "UpdateStudentDB", "**";
   permission javax.security.jacc.WebRoleRefPermission "ProcessStudentDB", "**";
   permission javax.security.jacc.WebRoleRefPermission "ExportStudentDB", "**";
+  permission javax.security.jacc.WebRoleRefPermission "DeleteStudentDB", "**";
   permission javax.security.jacc.WebRoleRefPermission "default", "**";
 };
 

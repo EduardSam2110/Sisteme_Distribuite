@@ -441,7 +441,7 @@
     </config>
   </configs>
   <property name="administrative.domain.name" value="domain1"></property>
-  <secure-admin special-admin-indicator="7544fb99-ca09-461e-a268-af655e9b3f1b">
+  <secure-admin special-admin-indicator="d0c9a464-76a3-45d8-80ad-83c09a39c100">
     <secure-admin-principal dn="CN=iedi.lan,OU=GlassFish,O=Oracle Corporation,L=Santa Clara,ST=California,C=US"></secure-admin-principal>
     <secure-admin-principal dn="CN=iedi.lan-instance,OU=GlassFish,O=Oracle Corporation,L=Santa Clara,ST=California,C=US"></secure-admin-principal>
   </secure-admin>

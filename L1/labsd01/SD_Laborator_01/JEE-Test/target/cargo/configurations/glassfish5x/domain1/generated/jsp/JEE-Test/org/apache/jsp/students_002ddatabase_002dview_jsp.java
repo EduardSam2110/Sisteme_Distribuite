@@ -64,7 +64,7 @@ if (request.getAttribute("eroare") != null) {
                 out.print("<li>Nu exista studenti in baza de date</li>" + "<br>");
             } else {
                 for (String student : studenti) {
-                    out.print("<li><a href=\"./update-student-db\">" + student + "</a></li><br>");
+                    out.print("<li>" + student + "</li><br>");
                 }
             }
         } else {
@@ -77,6 +77,19 @@ if (request.getAttribute("eroare") != null) {
       out.print( request.getParameter("keyword") != null ? request.getParameter("keyword") : "" );
       out.write("\">\n");
       out.write("            <button type=\"submit\">Export JSON</button>\n");
+      out.write("        </form>\n");
+      out.write("        <br>\n");
+      out.write("        <form method=\"post\" action=\"./update-student-db\">\n");
+      out.write("            <button type=\"submit\">Modifica studentul dupa id:</button><br>\n");
+      out.write("            Id: <input type=\"number\" name=\"idStudent\"><br>\n");
+      out.write("            Nume: <input type=\"text\" name=\"numeStudent\" placeholder=\"nume nou\"><br>\n");
+      out.write("            Prenume: <input type=\"text\" name=\"prenumeStudent\" placeholder=\"prenume nou\"><br>\n");
+      out.write("            Varsta: <input type=\"number\" name=\"varstaStudent\" placeholder=\"varsta noua\"><br>\n");
+      out.write("        </form>\n");
+      out.write("        <br>\n");
+      out.write("        <form method=\"post\" action=\"./delete-student-db\">\n");
+      out.write("            <button type=\"submit\">Sterge studentul cu id-ul:</button>\n");
+      out.write("            Id: <input type=\"number\" name=\"idStudent\"><br>\n");
       out.write("        </form>\n");
       out.write("\t</body>\n");
       out.write("</html>\n");
