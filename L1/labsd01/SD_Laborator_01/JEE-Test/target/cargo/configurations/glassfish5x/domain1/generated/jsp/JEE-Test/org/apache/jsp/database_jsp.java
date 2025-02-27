@@ -47,7 +47,7 @@ public final class database_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <h2>Students Database!</h2>\n");
       out.write("        <p>\n");
       out.write("            ");
-      out.print( request.getAttribute("message") != null ? request.getAttribute("message") : "No message available." );
+out.print(request.getAttribute("message") + "<br>");
       out.write("\n");
       out.write("        </p>\n");
       out.write("        <br/>\n");
@@ -59,9 +59,6 @@ public final class database_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <a href=\"./read-student-db\">Vizualizare studenti</a>\n");
       out.write("        </p>\n");
       out.write("        <br/>\n");
-      out.write("        <p>\n");
-      out.write("            <a href=\"\">Export JSON</a>\n");
-      out.write("        </p>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

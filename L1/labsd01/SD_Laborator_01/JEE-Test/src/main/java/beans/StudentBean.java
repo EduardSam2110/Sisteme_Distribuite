@@ -37,4 +37,10 @@ public class StudentBean implements java.io.Serializable {
     public void setVarsta(int varsta) {
         this.varsta = varsta;
     }
+
+    @Override
+    public String toString()
+    {
+        return nume + " " + prenume + " " + varsta;
+    }
 }

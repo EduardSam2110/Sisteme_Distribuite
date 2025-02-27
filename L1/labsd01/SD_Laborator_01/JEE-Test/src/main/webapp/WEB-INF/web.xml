@@ -29,6 +29,14 @@
     <servlet-name>ReadStudentDB</servlet-name>
     <servlet-class>ReadStudentDatabaseServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UpdateStudentDB</servlet-name>
+    <servlet-class>UpdateStudentDatabaseServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ExportStudentDB</servlet-name>
+    <servlet-class>ExportDatabaseJSON</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -54,5 +62,13 @@
   <servlet-mapping>
     <servlet-name>ReadStudentDB</servlet-name>
     <url-pattern>/read-student-db</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateStudentDB</servlet-name>
+    <url-pattern>/update-student-db</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExportStudentDB</servlet-name>
+    <url-pattern>/export-student-db</url-pattern>
   </servlet-mapping>
 </web-app>

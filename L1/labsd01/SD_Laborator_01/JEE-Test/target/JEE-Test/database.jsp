@@ -2,7 +2,7 @@
     <body>
         <h2>Students Database!</h2>
         <p>
-            <%= request.getAttribute("message") != null ? request.getAttribute("message") : "No message available." %>
+            <%out.print(request.getAttribute("message") + "<br>");%>
         </p>
         <br/>
         <p>
@@ -13,8 +13,5 @@
             <a href="./read-student-db">Vizualizare studenti</a>
         </p>
         <br/>
-        <p>
-            <a href="">Export JSON</a>
-        </p>
     </body>
 </html>

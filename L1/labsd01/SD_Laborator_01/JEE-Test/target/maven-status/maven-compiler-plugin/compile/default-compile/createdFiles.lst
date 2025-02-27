@@ -1,3 +1,5 @@
+UpdateStudentDatabaseServlet.class
+ExportDatabaseJSON.class
 InitDatabaseServlet.class
 ProcessStudentServlet.class
 ProcessStudentDatabaseServlet.class
