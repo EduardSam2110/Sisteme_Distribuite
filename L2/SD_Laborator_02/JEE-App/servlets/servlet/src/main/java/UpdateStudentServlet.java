@@ -59,6 +59,7 @@ public class UpdateStudentServlet extends HttpServlet {
                 if(otherFields == true)
                     jpql += ",";
                 jpql += " s.varsta = :varsta";
+                otherFields = true;
             }
 
             if(otherFields == true) {
