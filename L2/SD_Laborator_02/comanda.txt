@@ -1,0 +1,8 @@
+java in terminal:
+export PATH=$PATH:/home/iedi/.jdks/corretto-1.8.0_442/bin
+
+deploy:
+/home/iedi/Documents/Sisteme_Distribuite/L2/SD_Laborator_02/JEE-App/target/cargo/installs/glassfish-5.1.0/glassfish5/bin/asadmin deploy /home/iedi/Documents/Sisteme_Distribuite/L2/SD_Laborator_02/JEE-App/ear/target/JEE-App.ear
+ 
+redeploy:
+/home/iedi/Documents/Sisteme_Distribuite/L2/SD_Laborator_02/JEE-App/target/cargo/installs/glassfish-5.1.0/glassfish5/bin/asadmin redeploy --name JEE-App /home/iedi/Documents/Sisteme_Distribuite/L2/SD_Laborator_02/JEE-App/ear/target/JEE-App.ear

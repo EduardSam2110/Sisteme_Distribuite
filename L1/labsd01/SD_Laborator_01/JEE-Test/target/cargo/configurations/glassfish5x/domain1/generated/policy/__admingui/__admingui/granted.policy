@@ -1,4 +1,4 @@
-/* AUTOMATICALLY GENERATED ON Thu Feb 27 22:41:19 EET 2025*/
+/* AUTOMATICALLY GENERATED ON Fri Feb 28 16:36:21 EET 2025*/
 /* DO NOT EDIT */
 
 grant {
@@ -23,22 +23,22 @@ grant      principal * * {
 };
 
 grant      principal org.glassfish.security.common.Group "asadmin" {
-  permission javax.security.jacc.WebResourcePermission "/*:/theme/com/*:/theme/org/*:/theme/META-INF/*:/resource/*";
   permission javax.security.jacc.WebRoleRefPermission "default", "admin";
   permission javax.security.jacc.WebRoleRefPermission "FacesServlet", "admin";
   permission javax.security.jacc.WebRoleRefPermission "DownloadServlet", "admin";
   permission javax.security.jacc.WebRoleRefPermission "ThemeServlet", "admin";
   permission javax.security.jacc.WebRoleRefPermission "jsp", "admin";
   permission javax.security.jacc.WebRoleRefPermission "", "admin";
+  permission javax.security.jacc.WebResourcePermission "/*:/theme/com/*:/theme/org/*:/theme/META-INF/*:/resource/*";
 };
 
 grant      principal org.glassfish.security.common.PrincipalImpl "admin" {
-  permission javax.security.jacc.WebResourcePermission "/*:/theme/com/*:/theme/org/*:/theme/META-INF/*:/resource/*";
   permission javax.security.jacc.WebRoleRefPermission "default", "admin";
   permission javax.security.jacc.WebRoleRefPermission "FacesServlet", "admin";
   permission javax.security.jacc.WebRoleRefPermission "DownloadServlet", "admin";
   permission javax.security.jacc.WebRoleRefPermission "ThemeServlet", "admin";
   permission javax.security.jacc.WebRoleRefPermission "jsp", "admin";
   permission javax.security.jacc.WebRoleRefPermission "", "admin";
+  permission javax.security.jacc.WebResourcePermission "/*:/theme/com/*:/theme/org/*:/theme/META-INF/*:/resource/*";
 };
 
