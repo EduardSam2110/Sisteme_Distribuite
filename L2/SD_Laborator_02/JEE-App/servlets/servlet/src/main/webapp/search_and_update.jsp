@@ -16,11 +16,11 @@
         Varsta: <input type="number" name="varsta" />
         <br /><br />
 
-        <!-- Buton de căutare -->
         <button type="button" onclick="submitForm('search_and_update.jsp')">Cauta</button>
 
-        <!-- Buton de modificare -->
         <button type="button" onclick="submitForm('update-student')">Modifica</button>
+
+        <button type="button" onclick="submitForm('delete-student')">Sterge</button>
     </form>
 
     <jsp:include page="./fetch-student-list">

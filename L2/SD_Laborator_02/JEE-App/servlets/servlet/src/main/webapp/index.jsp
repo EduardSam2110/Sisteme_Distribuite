@@ -29,8 +29,6 @@
 		<a href="./formular.jsp">Adaugare student</a>
 		<br />
         <a href="./search_and_update.jsp">Modifica student</a>
-        <br />
-        <a href="./delete-student">Sterge student</a>
 		<br />
 		<a href="./fetch-student-list">Afisare lista studenti</a>
 	</body>
