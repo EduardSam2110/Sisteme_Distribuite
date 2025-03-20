@@ -2,17 +2,23 @@ package com.sd.laborator.services
 
 import com.sd.laborator.interfaces.GeolocationInterface
 import org.json.JSONObject
+import org.springframework.stereotype.Service
 import java.net.URL
 
+@Service
 class GeolocationService : GeolocationInterface{
-    override fun getUserGeolocation(ipAddress: String): String {
+    override fun getUserGeolocation(): List<String> {
+        val publicIp = PublicIPService()
+        val ip = publicIp.getUserPublicIP()
 
-        val geolocationSearch = URL("http://ipinfo.io/${ipAddress}/json")
+        val geolocationSearch = URL("http://ipinfo.io/${ip}/json")
         val rawResponse: String = geolocationSearch.readText()
 
         val responseRootObject = JSONObject(rawResponse)
-        val userLocation = responseRootObject.getString("country")
+        val userCountry = responseRootObject.getString("country")
 
-        return userLocation
+        val message = "Te afli in $userCountry iar adresa ta ip este $ip"
+
+        return listOf(userCountry, ip, message)
     }
 }

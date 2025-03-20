@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets
 
 @Service
 class LocationSearchService : LocationSearchInterface {
-    override fun getLocationId(locationName: String): Pair<Int?, (Pair<Double?, Double?>)?> {
+    override fun getLocationId(locationName: String): Pair<(Pair<Int?, String?>), (Pair<Double?, Double?>)?> {
         // codificare parametru URL (deoarece poate conţine caractere speciale)
         val encodedLocationName = URLEncoder.encode(locationName, StandardCharsets.UTF_8.toString())
 
@@ -26,26 +26,8 @@ class LocationSearchService : LocationSearchInterface {
         val latitude = responseContentObject?.getDouble("latitude")?.toDouble();
         val longitude = responseContentObject?.getDouble("longitude")?.toDouble();
         val locationId = responseContentObject?.getInt("id")?.toInt();
-
-        return Pair<Int?, (Pair<Double?, Double?>)?>(locationId,Pair<Double?,Double?>(latitude, longitude))
-    }
-
-    override fun getCountryCode(locationName: String): String? {
-        // codificare parametru URL (deoarece poate conţine caractere speciale)
-        val encodedLocationName = URLEncoder.encode(locationName, StandardCharsets.UTF_8.toString())
-
-        // construire obiect de tip URL
-        val locationSearchURL = URL("https://geocoding-api.open-meteo.com/v1/search?name=${encodedLocationName}&count=2&language=en&format=json")
-
-        // preluare raspuns HTTP (se face cerere GET şi se preia conţinutul răspunsului sub formă de text)
-        val rawResponse: String = locationSearchURL.readText()
-
-        // parsare obiect JSON
-        val responseRootObject = JSONObject("${rawResponse}}")
-        val responseContentObject = responseRootObject.getJSONArray("results").takeUnless { it.isEmpty }
-            ?.getJSONObject(0)
         val countryCode = responseContentObject?.getString("country_code")?.toString();
 
-        return countryCode
+        return Pair<(Pair<Int?, String?>), (Pair<Double?, Double?>)?>(Pair<Int?, String?>(locationId, countryCode), Pair<Double?,Double?>(latitude, longitude))
     }
 }
