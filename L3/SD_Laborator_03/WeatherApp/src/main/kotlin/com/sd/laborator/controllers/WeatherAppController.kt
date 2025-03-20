@@ -1,5 +1,6 @@
 package com.sd.laborator.controllers
 
+
 import com.sd.laborator.interfaces.LocationSearchInterface
 import com.sd.laborator.interfaces.WeatherForecastInterface
 import com.sd.laborator.pojo.WeatherForecastData
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 import java.io.File
+import java.net.URL
+import javax.servlet.http.HttpServletRequest
 
 @Controller
 class WeatherAppController {
@@ -22,6 +25,7 @@ class WeatherAppController {
 
     @Autowired
     private lateinit var weatherForecastService: WeatherForecastInterface
+
 
 //    @RequestMapping("/getforecast/{location}", method = [RequestMethod.GET])
 //    @ResponseBody
@@ -49,11 +53,11 @@ class WeatherAppController {
     @RequestMapping("/getforecast/{location}", method = [RequestMethod.GET])
     @ResponseBody
     fun getForecast(@PathVariable location: String): String {
-        // se incearca preluarea WOEID-ului locaţiei primite in URL
-        val ip = PublicIPService()
+        var ip = getPublicIP()
+        println("IP-ul detectat: $ip")
         val geoloc = GeolocationService()
 
-        val userLocation = geoloc.getUserGeolocation(ip.getUserPublicIP())
+        val userLocation = geoloc.getUserGeolocation(ip)
 
         val countryCode = locationSearchService.getCountryCode(location)
 
@@ -93,7 +97,15 @@ class WeatherAppController {
         val rawForecastData: WeatherForecastData = weatherForecastService.getForecastData(details)
 
         // fiind obiect POJO, funcţia toString() este suprascrisă pentru o afişare mai prietenoasă
-        return rawForecastData.toString()
+        return rawForecastData.toString() + "\nAdresa ta ip este: $ip" + "\nTe afli in $countryCode"
+    }
+
+    fun getPublicIP(): String {
+        return try {
+            URL("https://api64.ipify.org").readText()
+        } catch (e: Exception) {
+            "8.8.8.8" // Fallback IP dacă API-ul nu funcționează
+        }
     }
 
 }
