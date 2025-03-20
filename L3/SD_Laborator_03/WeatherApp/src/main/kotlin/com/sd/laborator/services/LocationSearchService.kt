@@ -19,15 +19,28 @@ class LocationSearchService : LocationSearchInterface {
         // preluare raspuns HTTP (se face cerere GET şi se preia conţinutul răspunsului sub formă de text)
         val rawResponse: String = locationSearchURL.readText()
 
-        // parsare obiect JSON
-        val responseRootObject = JSONObject("${rawResponse}}")
-        val responseContentObject = responseRootObject.getJSONArray("results").takeUnless { it.isEmpty }
-            ?.getJSONObject(0)
-        val latitude = responseContentObject?.getDouble("latitude")?.toDouble();
-        val longitude = responseContentObject?.getDouble("longitude")?.toDouble();
-        val locationId = responseContentObject?.getInt("id")?.toInt();
-        val countryCode = responseContentObject?.getString("country_code")?.toString();
+        try{
+            // parsare obiect JSON
+            val responseRootObject = JSONObject(rawResponse)
+            val responseContentObject = responseRootObject.getJSONArray("results").takeUnless { it.isEmpty }
+                ?.getJSONObject(0)
+            val latitude = responseContentObject?.getDouble("latitude")?.toDouble();
+            val longitude = responseContentObject?.getDouble("longitude")?.toDouble();
+            val locationId = responseContentObject?.getInt("id")?.toInt();
+            val countryCode = responseContentObject?.getString("country_code")?.toString();
 
-        return Pair<(Pair<Int?, String?>), (Pair<Double?, Double?>)?>(Pair<Int?, String?>(locationId, countryCode), Pair<Double?,Double?>(latitude, longitude))
+            return Pair(
+                Pair(locationId, countryCode),
+                Pair(latitude, longitude)
+            )
+        }
+        catch (e:Exception)
+        {
+            return Pair(
+                Pair(-1, "NaN"),
+                Pair(0.0, 0.0)
+            )
+        }
+
     }
 }
