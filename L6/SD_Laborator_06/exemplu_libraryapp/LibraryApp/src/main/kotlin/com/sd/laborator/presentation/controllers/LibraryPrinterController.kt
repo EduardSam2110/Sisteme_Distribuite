@@ -2,13 +2,16 @@ package com.sd.laborator.presentation.controllers
 
 import com.sd.laborator.business.interfaces.ILibraryDAOService
 import com.sd.laborator.business.interfaces.ILibraryPrinterService
-import com.sd.laborator.business.models.Book
+import com.sd.laborator.business.services.BookService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
+import javax.annotation.PostConstruct
+
+
 
 @Controller
 class LibraryPrinterController {
@@ -16,8 +19,16 @@ class LibraryPrinterController {
     private lateinit var _libraryDAOService: ILibraryDAOService
 
     @Autowired
+    private lateinit var bookService: BookService
+
+
+    @Autowired
     private lateinit var _libraryPrinterService: ILibraryPrinterService
 
+    @PostConstruct
+    fun init() {
+        bookService.createBookTable()
+    }
 
     @RequestMapping("/print", method = [RequestMethod.GET])
     @ResponseBody
@@ -38,7 +49,7 @@ class LibraryPrinterController {
         @RequestParam(required = false, name = "publisher", defaultValue = "") publisher: String
     ): String {
         if (author != "")
-            return this._libraryPrinterService.printJSON(this._libraryDAOService.findAllByAuthor(author))
+            return this._libraryPrinterService.printJSON(this.bookService.getBookByAuthor(author))
         if (title != "")
             return this._libraryPrinterService.printJSON(this._libraryDAOService.findAllByTitle(title))
         if (publisher != "")
@@ -53,7 +64,7 @@ class LibraryPrinterController {
         @RequestParam(required = false, name = "author", defaultValue = "") author: String,
         @RequestParam(required = false, name = "format", defaultValue = "") format: String,
     ): String {
-        val whatToPrint = this._libraryDAOService.findAllByAuthor(author)
+        val whatToPrint = this.bookService.getBookByAuthor(author)
 
         return when (format) {
             "html" -> _libraryPrinterService.printHTML(whatToPrint)

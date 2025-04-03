@@ -3,8 +3,10 @@ package com.sd.laborator.business.services
 import com.sd.laborator.business.interfaces.ILibraryDAOService
 import com.sd.laborator.business.models.Book
 import com.sd.laborator.business.models.Content
+import org.springframework.context.annotation.Primary
 import org.springframework.stereotype.Service
 
+@Primary
 @Service
 class LibraryDAOService : ILibraryDAOService {
     private var _books: MutableSet<Book> = mutableSetOf(
