@@ -3,6 +3,7 @@ package com.sd.laborator.components
 import com.sd.laborator.interfaces.LibraryDAO
 import com.sd.laborator.interfaces.LibraryPrinter
 import com.sd.laborator.model.Book
+import com.sd.laborator.model.Content
 import com.sd.laborator.services.LibraryHTMLPrinter
 import com.sd.laborator.services.LibraryJSONPrinter
 import com.sd.laborator.services.LibraryRawPrinter
@@ -54,6 +55,7 @@ class LibraryAppComponent {
             val result: String? = when(function) {
                 "print" -> customPrint(parameter)
                 "find" -> customFind(parameter)
+                "add" -> addBook(parameter)
                 else -> null
             }
             if (result != null) sendMessage(result)
@@ -93,13 +95,14 @@ class LibraryAppComponent {
         }
     }
 
-    fun addBook(book: Book): Boolean {
+    fun addBook(data: String): String {
+        val (titlu, autor, editura, text) = data.split("#")
+        var content = Content(autor, text, titlu, editura)
         return try {
-            this.libraryDAO.addBook(book)
-            true
+            this.libraryDAO.addBook(Book(content))
+            return "Carte adaugata"
         } catch (e: Exception) {
-            false
+            return "eroare"
         }
     }
-
 }

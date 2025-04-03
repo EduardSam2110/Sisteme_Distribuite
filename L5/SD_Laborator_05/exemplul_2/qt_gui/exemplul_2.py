@@ -1,6 +1,6 @@
 import os
 import sys
-from PyQt5.QtWidgets import QWidget, QApplication, QFileDialog, QMessageBox
+from PyQt5.QtWidgets import QWidget, QApplication, QFileDialog, QMessageBox, QDialog
 from PyQt5 import QtCore
 from PyQt5.uic import loadUi
 from mq_communication import RabbitMq
@@ -21,9 +21,20 @@ class LibraryApp(QWidget):
         ui_path = os.path.join(self.ROOT_DIR, 'exemplul_2.ui')
         loadUi(ui_path, self)
         self.search_btn.clicked.connect(self.search)
+        self.add_btn.clicked.connect(self.add)
         self.save_as_file_btn.clicked.connect(self.save_as_file)
         self.rabbit_mq = RabbitMq(self)
+    
+    def add(self):
+        self.formular = Formular()
+        result = self.formular.exec_()
+        
+        if result == QDialog.Accepted:
+            carte = self.formular.getBook()
 
+        self.send_request(f'add:{carte}')
+        
+    
     def set_response(self, response):
         self.result.setText(response)
 
@@ -109,6 +120,21 @@ class LibraryApp(QWidget):
                 QMessageBox.warning(self, 'Exemplul 2',
                                     'Nu s-a putut salva fisierul')
 
+
+class Formular(QDialog):
+    def __init__(self):
+        super().__init__()
+        loadUi("formular.ui", self)
+        self.buttonBox.accepted.connect(self.accept)
+        self.buttonBox.rejected.connect(self.reject)
+        
+    def getBook(self):
+        titlu = self.titlu.text()
+        autor = self.autor.text()
+        editura = self.editura.text()
+        text = self.text.toPlainText()
+        return f'{titlu}#{autor}#{editura}#{text}'
+        
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

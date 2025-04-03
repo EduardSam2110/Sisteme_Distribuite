@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>690</width>
+    <width>642</width>
     <height>410</height>
    </rect>
   </property>
@@ -42,6 +42,16 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="add_btn">
+       <property name="text">
+        <string>Adauga</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">search_rb_btns</string>
+       </attribute>
+      </widget>
      </item>
     </layout>
    </item>
