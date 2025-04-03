@@ -35,15 +35,15 @@ class Book(private var data: Content) {
         }
 
     fun hasAuthor(author: String): Boolean {
-        return data.author.equals(author)
+        return data.author?.lowercase()?.contains(author.lowercase()) ?: false
     }
 
     fun hasTitle(title: String): Boolean {
-        return data.name.equals(title)
+        return data.name?.lowercase()?.contains(title.lowercase()) ?: false
     }
 
     fun publishedBy(publisher: String): Boolean {
-        return data.publisher.equals(publisher)
+        return data.publisher?.lowercase()?.contains(publisher.lowercase()) ?: false
     }
 
 }

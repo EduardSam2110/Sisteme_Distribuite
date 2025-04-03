@@ -138,6 +138,16 @@
       </widget>
      </item>
      <item>
+      <widget class="QRadioButton" name="xml_rb">
+       <property name="text">
+        <string>XML</string>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">file_type_rb_btns</string>
+       </attribute>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -164,7 +174,7 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="search_rb_btns"/>
   <buttongroup name="file_type_rb_btns"/>
+  <buttongroup name="search_rb_btns"/>
  </buttongroups>
 </ui>

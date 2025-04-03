@@ -3,6 +3,7 @@ package com.sd.laborator.services
 import com.sd.laborator.interfaces.HTMLPrinter
 import com.sd.laborator.interfaces.JSONPrinter
 import com.sd.laborator.interfaces.RawPrinter
+import com.sd.laborator.interfaces.XMLPrinter
 import com.sd.laborator.model.Book
 import org.springframework.stereotype.Service
 
@@ -44,4 +45,21 @@ class LibraryRawPrinter : RawPrinter {
         return content
     }
 
+}
+
+@Service
+class LibraryXMLPrinter : XMLPrinter {
+    override fun printXML(books: Set<Book>): String {
+        var content = "<library>\n"
+        books.forEach { book ->
+            content += "  <book>\n"
+            content += "    <title>${book.name}</title>\n"
+            content += "    <author>${book.author}</author>\n"
+            content += "    <publisher>${book.publisher}</publisher>\n"
+            content += "    <content>${book.content}</content>\n"
+            content += "  </book>\n"
+        }
+        content += "</library>"
+        return content
+    }
 }

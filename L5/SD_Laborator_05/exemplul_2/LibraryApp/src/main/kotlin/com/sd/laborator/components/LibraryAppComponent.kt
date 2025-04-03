@@ -6,6 +6,7 @@ import com.sd.laborator.model.Book
 import com.sd.laborator.services.LibraryHTMLPrinter
 import com.sd.laborator.services.LibraryJSONPrinter
 import com.sd.laborator.services.LibraryRawPrinter
+import com.sd.laborator.services.LibraryXMLPrinter
 import org.springframework.amqp.core.AmqpTemplate
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.beans.factory.annotation.Autowired
@@ -26,6 +27,8 @@ class LibraryAppComponent {
     @Autowired
     private lateinit var rawPrinter: LibraryRawPrinter
 
+    @Autowired
+    private lateinit var xmlPrinter: LibraryXMLPrinter
 
     @Autowired
     private lateinit var connectionFactory: RabbitMqConnectionFactoryComponent
@@ -63,6 +66,7 @@ class LibraryAppComponent {
         return when(format) {
             "html" -> htmlPrinter.printHTML(libraryDAO.getBooks())
             "json" -> jsonPrinter.printJSON(libraryDAO.getBooks())
+            "xml" -> xmlPrinter.printXML(libraryDAO.getBooks())
             "raw" -> rawPrinter.printRaw(libraryDAO.getBooks())
             else -> "Not implemented"
         }
@@ -72,6 +76,7 @@ class LibraryAppComponent {
         return when(format) {
             "html" -> htmlPrinter.printHTML(books)
             "json" -> jsonPrinter.printJSON(books)
+            "xml" -> xmlPrinter.printXML(books)
             "raw" -> rawPrinter.printRaw(books)
             else -> "Not implemented"
         }

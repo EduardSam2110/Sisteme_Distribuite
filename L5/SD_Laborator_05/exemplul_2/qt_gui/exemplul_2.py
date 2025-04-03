@@ -38,27 +38,28 @@ class LibraryApp(QWidget):
         if not search_string:
             if self.json_rb.isChecked():
                 request = 'print:json'
-                searchingOn = 'json'
             elif self.html_rb.isChecked():
                 request = 'print:html'
-                searchingOn = 'html'
+            elif self.xml_rb.isChecked():
+                request = 'print:xml'
             else:
                 request = 'print:raw'
-                searchingOn = 'raw'
         else:
             if self.json_rb.isChecked():
                 searchingOn = 'json'
             elif self.html_rb.isChecked():
                 searchingOn = 'html'
+            elif self.xml_rb.isChecked():
+                searchingOn = 'xml'
             else:
                 searchingOn = 'raw'
                 
             if self.author_rb.isChecked():
-                request = 'find:author={}={}'.format(search_string, searchingOn)
+                request = 'find:author={}={}'.format(search_string, searchingOn).lower()
             elif self.title_rb.isChecked():
-                request = 'find:title={}={}'.format(search_string, searchingOn)
+                request = 'find:title={}={}'.format(search_string, searchingOn).lower()
             else:
-                request = 'find:publisher={}={}'.format(search_string, searchingOn)
+                request = 'find:publisher={}={}'.format(search_string, searchingOn).lower()
         print(request)
         self.send_request(request)
         
@@ -77,6 +78,10 @@ class LibraryApp(QWidget):
             extension = '.html'
             file_type = 'HTML Files (*.html)'
             self.set_response_custom('html')
+        elif self.xml_rb.isChecked():
+            extension = '.xml'
+            file_type = 'XML Files (*.xml)'
+            self.set_response_custom('xml')
         else:
             extension = '.txt'
             file_type = 'Text Files (*.txt)'
