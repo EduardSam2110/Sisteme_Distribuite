@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
+import javax.servlet.http.HttpServletRequest
 
 /*
 am folosit spring-boot:run -Dspring-boot.run.arguments=--server.address=0.0.0.0 pentru a rula in reteaua locala
@@ -73,3 +74,16 @@ class WeatherAppController(private val weatherOrchestrator: WeatherOrchestrator)
         return weatherOrchestrator.getWeatherForecast(location)
     }
 }
+
+
+
+/*
+@Controller
+class WeatherAppController(private val weatherOrchestrator: WeatherOrchestrator) {
+    @RequestMapping("/getforecast/{location}", method = [RequestMethod.GET])
+    @ResponseBody
+    fun getForecast(@PathVariable location: String, request: HttpServletRequest): String {
+        return weatherOrchestrator.getWeatherForecast(location, request)
+    }
+}
+ */

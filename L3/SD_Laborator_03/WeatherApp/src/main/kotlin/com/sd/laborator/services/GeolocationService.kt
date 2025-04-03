@@ -4,6 +4,7 @@ import com.sd.laborator.interfaces.GeolocationInterface
 import org.json.JSONObject
 import org.springframework.stereotype.Service
 import java.net.URL
+import javax.servlet.http.HttpServletRequest
 
 @Service
 class GeolocationService : GeolocationInterface{

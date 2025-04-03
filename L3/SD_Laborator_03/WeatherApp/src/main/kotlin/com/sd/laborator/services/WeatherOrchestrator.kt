@@ -7,6 +7,7 @@ import com.sd.laborator.interfaces.WeatherForecastInterface
 import com.sd.laborator.pojo.WeatherForecastData
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import javax.servlet.http.HttpServletRequest
 
 @Service
 class WeatherOrchestrator {
@@ -28,7 +29,7 @@ class WeatherOrchestrator {
         val locationDetails = locationSearchService.getLocationId(location) // datele despre locatia cautata: codul locatiei si country code, latitudinea si longitudinea
 
         print(locationDetails.first.first)
-        // dacă locaţia nu a fost găsită, răspunsul va fi corespunzător
+
         if (locationDetails.first.first == -1) {
             return "Nu s-au putut gasi date meteo pentru cuvintele cheie \"$location\"!"
         }

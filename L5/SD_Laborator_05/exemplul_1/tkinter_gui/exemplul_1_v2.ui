@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <object id="stack_app_window" class="tk.Frame">
+    <property name="height">200</property>
+    <property name="width">400</property>
+    <layout>
+      <property name="column">0</property>
+      <property name="propagate">True</property>
+      <property name="row">0</property>
+    </layout>
+    <child>
+      <object id="stack_A_lbl" class="tk.Label">
+        <property name="text" translatable="yes">Multimea A:</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="sticky">nw</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object id="stack_B_lbl" class="tk.Label">
+        <property name="text" translatable="yes">Multimea B:</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object id="stack_A" class="tk.Label">
+        <property name="text" translatable="yes">[1, 2, 3]</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object id="stack_B" class="tk.Label">
+        <property name="text" translatable="yes">[4, 5, 6]</property>
+        <layout>
+          <property name="column">1</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <property name="sticky">w</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object id="regenerate_A_btn" class="tk.Button">
+        <property name="text" translatable="yes">Generare multimea A</property>
+        <layout>
+          <property name="column">2</property>
+          <property name="propagate">True</property>
+          <property name="row">0</property>
+          <property name="sticky">ne</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object id="regenerate_B_btn" class="tk.Button">
+        <property name="text" translatable="yes">Generare multimea B</property>
+        <layout>
+          <property name="column">2</property>
+          <property name="propagate">True</property>
+          <property name="row">1</property>
+          <property name="sticky">e</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object id="compute_btn" class="tk.Button">
+        <property name="text" translatable="yes">Calculare expresie</property>
+        <layout>
+          <property name="column">2</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+          <property name="sticky">se</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object id="result" class="tk.Text">
+        <property name="height">25</property>
+        <property name="text" translatable="yes">
+</property>
+        <property name="width">75</property>
+        <layout>
+          <property name="column">0</property>
+          <property name="propagate">True</property>
+          <property name="row">2</property>
+        </layout>
+      </object>
+    </child>
+  </object>
+</interface>
