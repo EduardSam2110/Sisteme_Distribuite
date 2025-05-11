@@ -1,0 +1,28 @@
+app register --name time-source --type source --uri file:////home/iedi/Documents/Sisteme_Distribuite/L9/SD_Laborator_09/exemplul%201/DataFlow%20Source/target/DataFlowSource-1.0-SNAPSHOT.jar
+
+
+
+app register --name time-processor --type processor --uri file:////home/iedi/Documents/Sisteme_Distribuite/L9/SD_Laborator_09/exemplul%201/DataFlow%20Processor/target/DataFlowProcessor-1.0-SNAPSHOT.jar
+
+
+
+app register --name logging-sink --type sink --uri file:////home/iedi/Documents/Sisteme_Distribuite/L9/SD_Laborator_09/exemplul%201/DataFlow%20Sink/target/DataFlowSink-1.0-SNAPSHOT.jar
+
+
+stream create --name time-to-log --definition 'time-source | time-processor | logging-sink'
+
+stream deploy --name time-to-log
+
+
+
+in DataFlow
+java -jar spring-cloud-skipper-server-2.4.3.RELEASE.jar
+java -jar spring-cloud-dataflow-server-2.5.4.RELEASE.jar
+java -jar spring-cloud-dataflow-shell-2.5.4.RELEASE.jar
+
+
+Ex1 
+
+stream create --name time-to-log --definition 'time-source | time-processor | time-processor2 | time-processor3 | logging-sink'
+
+stream deploy --name time-to-log
