@@ -1,0 +1,26 @@
+app register --name client --type source --uri file:////home/iedi/Documents/Sisteme_Distribuite/L9/SD_Laborator_09/exemplul%202/Client/target/Client-1.0-SNAPSHOT.jar
+
+
+app register --name comanda --type processor --uri file:////home/iedi/Documents/Sisteme_Distribuite/L9/SD_Laborator_09/exemplul%202/Comanda/target/Comanda-1.0-SNAPSHOT.jar
+
+
+app register --name depozit --type processor --uri file:////home/iedi/Documents/Sisteme_Distribuite/L9/SD_Laborator_09/exemplul%202/Depozit/target/Depozit-1.0-SNAPSHOT.jar
+
+
+app register --name facturare --type processor --uri file:////home/iedi/Documents/Sisteme_Distribuite/L9/SD_Laborator_09/exemplul%202/Facturare/target/Facturare-1.0-SNAPSHOT.jar
+
+
+app register --name livrare --type sink --uri file:////home/iedi/Documents/Sisteme_Distribuite/L9/SD_Laborator_09/exemplul%202/Livrare/target/Livrare-1.0-SNAPSHOT.jar
+
+
+in DataFlow
+java -jar spring-cloud-skipper-server-2.4.3.RELEASE.jar
+java -jar spring-cloud-dataflow-server-2.5.4.RELEASE.jar
+java -jar spring-cloud-dataflow-shell-2.5.4.RELEASE.jar
+
+
+Ex2
+
+stream create --name domain-driven-design --definition 'client | comanda | depozit | facturare | livrare'
+
+stream deploy --name domain-driven-design
