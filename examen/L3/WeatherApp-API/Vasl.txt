@@ -1,0 +1,3 @@
+Oras: Vasl
+Temperatura minima: 23.9
+Temperatura maxima: 31.5

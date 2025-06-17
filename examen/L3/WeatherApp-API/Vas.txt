@@ -1,0 +1,3 @@
+Oras: Vas
+Temperatura minima: 6.3
+Temperatura maxima: 18.2

@@ -1,0 +1,12 @@
+Oras: bucharest
+Temperatura minima: 16.0
+Temperatura maxima: 32.5
+Oras: bucharest
+Temperatura minima: 16.0
+Temperatura maxima: 32.5
+Oras: bucharest
+Temperatura minima: 16.0
+Temperatura maxima: 32.5
+Oras: bucharest
+Temperatura minima: 16.0
+Temperatura maxima: 32.5

@@ -1,0 +1,3 @@
+Oras: Bucharest
+Temperatura minima: 16.0
+Temperatura maxima: 32.5
