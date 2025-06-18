@@ -48,6 +48,32 @@ class EratosteneSieveService {
         return prime
     }
 
+    // Funcția recursivă pentru calculul termenilor
+    private fun calculateTerm(n: Int, aPrev: Double): Double {
+        if (n == 0) return 1.0 // Condiția de bază pentru a_0
+        return aPrev + 2 * (aPrev / n) // Formula dată pentru a_n
+    }
+
+    // Funcția recursivă pentru a calcula șirul până la termenul n
+    fun calculateSeries(n: Int): List<Int> {
+        val series = mutableListOf<Double>()
+        // Start cu a_0
+        var previousTerm = 1.0
+        series.add(previousTerm)
+        for (i in 1 until n) {
+            // Calculăm fiecare termen folosind recursivitatea
+            previousTerm = calculateTerm(i, previousTerm)
+            series.add(previousTerm)
+        }
+        return series.map { it.toInt() }
+    }
+
+    fun reuniune(set1: Multime, set2: Multime): Multime {
+        return Multime(set1.valori.union(set2.valori))// Reuniunea celor două seturi
+    }
+
+
+
     init {
         // initializare vectori isPrime si SPF
         for (i in 0 until MAX_SIZE) {

@@ -30,10 +30,20 @@ class EratosteneFunction : FunctionInitializer(), Function<EratosteneRequest, Er
         LOG.info("Se calculeaza primele $number numere prime ...")
 
         // se face calculul si se seteaza proprietatile pe obiectul cu rezultatul
-        response.setPrimes(eratosteneSieveService.findPrimesLessThan(number))
-        response.setMessage("Calcul efectuat cu succes!")
+//        response.setPrimes(eratosteneSieveService.calculateSeries(number))
+//        response.setMessage("Calcul efectuat cu succes!")
+
+        val A = Multime(number)
+        val B = Multime(number)
+
+        response.setMultime(eratosteneSieveService.reuniune(A,B))
+
+        LOG.info("Multime ${eratosteneSieveService.reuniune(A,B)}")
 
         LOG.info("Calcul incheiat!")
+
+        response.setMessage("iedi boss")
+
         return response
     }   
 }

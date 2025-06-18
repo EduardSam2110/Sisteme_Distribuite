@@ -2,6 +2,7 @@ package com.sd.laborator
 
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
 import io.micronaut.runtime.Micronaut
 
@@ -16,6 +17,11 @@ object Application {
         @Post
         fun execute(@Body book: Book?): BookSaved? {
             return handler.execute(book)
+        }
+
+        @Get
+        fun sal(): String {
+            return "iedi"
         }
 
         companion object {

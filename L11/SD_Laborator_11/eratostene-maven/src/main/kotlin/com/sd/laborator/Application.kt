@@ -18,6 +18,11 @@ object Application {
             return handler.apply(request)
         }
 
+        @Post
+        fun union(@Body request: EratosteneRequest): EratosteneResponse {
+            return handler.apply(request)
+        }
+
         companion object {
             private val handler = EratosteneFunction()
         }

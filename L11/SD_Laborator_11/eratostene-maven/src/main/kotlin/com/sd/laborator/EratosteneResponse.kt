@@ -6,6 +6,7 @@ import io.micronaut.core.annotation.Introspected
 class EratosteneResponse {
 	private var message: String? = null
 	private var primes: List<Int>? = null
+	private var reuninune: Multime? = null
 
 	fun getPrimes(): List<Int>? {
 		return primes
@@ -21,6 +22,14 @@ class EratosteneResponse {
 
 	fun setMessage(message: String?) {
 		this.message = message
+	}
+
+	fun setMultime(r : Multime?) {
+		this.reuninune = r
+	}
+
+	fun getMultime(): Multime? {
+		return this.reuninune
 	}
 }
 
