@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aaeeab89-547c-4d96-90d9-fe18d79942f5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beer.db" beforeDir="false" afterPath="$PROJECT_DIR$/beer.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../L10/SD_Laborator_10/Resources/apache-kafka-on-k8s" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../L10/SD_Laborator_10/Resources/apache-kafka-on-k8s" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

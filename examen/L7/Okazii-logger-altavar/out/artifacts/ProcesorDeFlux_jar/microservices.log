@@ -1,0 +1,45 @@
+[LOGGER] [BiddingProcessor] BiddingProcessorMicroservice se executa pe portul: 1700
+[LOGGER] [BiddingProcessor] Se asteapta ofertele pentru finalizarea licitatiei...
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60706 >>> licitez 7455
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60718 >>> licitez 1854
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60734 >>> licitez 5179
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60738 >>> licitez 2492
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60742 >>> licitez 1345
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60748 >>> licitez 3235
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60764 >>> licitez 2201
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60772 >>> licitez 2324
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60780 >>> licitez 7844
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60792 >>> licitez 4551
+[LOGGER] [MessageProcessor] Trimit urmatoarele mesaje:
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60706 >>> licitez 7455
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60706 >>> licitez 7455
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60718 >>> licitez 1854
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60718 >>> licitez 1854
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60734 >>> licitez 5179
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60734 >>> licitez 5179
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60738 >>> licitez 2492
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60742 >>> licitez 1345
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60738 >>> licitez 2492
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60742 >>> licitez 1345
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60748 >>> licitez 3235
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60764 >>> licitez 2201
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60748 >>> licitez 3235
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60764 >>> licitez 2201
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60772 >>> licitez 2324
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60780 >>> licitez 7844
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60772 >>> licitez 2324
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60780 >>> licitez 7844
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60792 >>> licitez 4551
+[LOGGER] [MessageProcessor] [19-06-2025 18:18:14] /127.0.0.1:60792 >>> licitez 4551
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60706 >>> licitez 7455
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60718 >>> licitez 1854
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60734 >>> licitez 5179
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60738 >>> licitez 2492
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60742 >>> licitez 1345
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60748 >>> licitez 3235
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60764 >>> licitez 2201
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60772 >>> licitez 2324
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60780 >>> licitez 7844
+[LOGGER] [BiddingProcessor] [19-06-2025 18:18:14] /127.0.0.1:60792 >>> licitez 4551
+[LOGGER] [BiddingProcessor] Castigatorul este: /127.0.0.1:60780
+[LOGGER] [BiddingProcessor] Am anuntat castigatorul catre AuctioneerMicroservice.
