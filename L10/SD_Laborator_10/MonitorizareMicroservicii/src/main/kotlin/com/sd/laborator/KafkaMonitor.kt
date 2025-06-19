@@ -1,6 +1,8 @@
 package com.sd.laborator
 
+import com.sd.laborator.components.StackAppComponent
 import org.apache.kafka.clients.consumer.ConsumerRecord
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.kafka.annotation.PartitionOffset
 import org.springframework.kafka.annotation.TopicPartition
@@ -19,6 +21,10 @@ class KafkaMonitor {
 
         private var BASE_DOCKER_API_COMMAND = "curl --unix-socket /var/run/docker.sock http:/v1.40"
     }
+
+    @Autowired
+    private lateinit var stackAppComponent: StackAppComponent
+
 
     init {
         println("KakfaMonitor instantiated!")
@@ -46,10 +52,19 @@ class KafkaMonitor {
     )
     fun monitorKafkaMessages(message: ConsumerRecord<String, String>) {
         when(message.topic()) {
-            "topic_oferte" -> ++numberOfBids
-            "topic_oferte_procesate" -> ++numberOfProcessedBids
+            "topic_oferte" -> {
+                ++numberOfBids
+                // Trimite mesajul prin RabbitMQ
+                stackAppComponent.sendMessage("[${LocalDateTime.now()}] Grad incarcare Auctioneer: $numberOfBids oferte primite")
+            }
+            "topic_oferte_procesate" -> {
+                ++numberOfProcessedBids
+                // Trimite mesajul procesat prin RabbitMQ
+                stackAppComponent.sendMessage("[${LocalDateTime.now()}] Grad incarcare MessageProcessor: $numberOfProcessedBids oferte procesate")
+            }
         }
     }
+
 
     @Scheduled(fixedDelay=1000)
     fun showKafkaStats() {
