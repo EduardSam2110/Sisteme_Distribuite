@@ -1,0 +1,4 @@
+[2025-06-19 18:14:55] Auctioneer: Licitatia s-a incheiat si se trimit ofertele.
+[2025-06-19 18:14:55] MessageProcessor: Mesaj primit: [19-06-2025 18:14:40] /127.0.0.1:53196 >>> licitez 4121
+[2025-06-19 18:14:55] BiddingProcessor: Castigatorul este: /127.0.0.1:53196
+[2025-06-19 18:14:55] [53196] a primit rezultatul: Licitatie castigata! Pret castigator: 4121
