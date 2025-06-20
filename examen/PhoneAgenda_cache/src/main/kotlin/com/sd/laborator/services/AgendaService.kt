@@ -1,5 +1,6 @@
 package com.sd.laborator.services
 
+import com.sd.laborator.interfaces.IAgendaCacheService
 import com.sd.laborator.interfaces.IAgendaService
 import com.sd.laborator.pojo.Person
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,7 +19,7 @@ class AgendaService : IAgendaService {
     }
 
     @Autowired
-    private lateinit var cacheService: AgendaCacheService
+    private lateinit var cacheService: IAgendaCacheService
 
     private val agenda = ConcurrentHashMap<Int, Person>(
         initialAgenda.associateBy { person: Person -> person.id }
